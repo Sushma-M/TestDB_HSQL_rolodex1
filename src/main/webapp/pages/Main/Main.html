@@ -1,0 +1,40 @@
+<wm-page name="page1" data-ng-controller="MainPageController"> 
+    <wm-header name="header1" content="header"></wm-header> 
+    <wm-content name="content1"> 
+        <wm-left-panel name="left_panel1" columnwidth="2" content="leftnav"></wm-left-panel> 
+        <wm-page-content name="page_content1" columnwidth="8"> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane name="tabpane1" heading="rolodex_actortab with filter"> 
+                    <wm-livefilter gridsearch="false" dataset="bind:Variables.RolodexActorData.dataSet" name="livefilter1" class="panel-default"> 
+                        <wm-layoutgrid name="layoutgrid2"> 
+                            <wm-gridrow name="gridrow1"> 
+                                <wm-gridcolumn name="gridcolumn4" columnwidth="12"> 
+                                    <wm-filter-field field="actorId" display-name="Actor Id" show="true" type="integer" primary-key="false" generator="identity" is-range="false" readonly="false" is-related="false" filter-on="actorId" widget="select" min-placeholder="Enter Value" multiple="false"></wm-filter-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow2"> 
+                                <wm-gridcolumn name="gridcolumn5" columnwidth="12"> 
+                                    <wm-filter-field field="firstName" display-name="First Name" show="true" type="string" primary-key="false" generator="null" is-range="false" readonly="false" is-related="false" filter-on="firstName" widget="text" min-placeholder="Enter Value" multiple="false"></wm-filter-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow3"> 
+                                <wm-gridcolumn name="gridcolumn6" columnwidth="12"> 
+                                    <wm-filter-field field="lastName" display-name="Last Name" show="true" type="string" primary-key="false" generator="null" is-range="false" readonly="false" is-related="false" filter-on="lastName" widget="text" min-placeholder="Enter Value" multiple="false"></wm-filter-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                        </wm-layoutgrid> 
+                        <wm-filter-action key="filter" display-name="Filter" show="true" class="btn-primary" iconname="filter" action="filter()"></wm-filter-action> 
+                        <wm-filter-action key="clear" display-name="Clear" show="true" class="btn" iconname="clear" action="clearFilter()"></wm-filter-action> 
+                    </wm-livefilter> 
+                    <wm-grid gridsearch="false" dataset="bind:Widgets.livefilter1.result" name="grid2" readonlygrid="true" class="panel-default"> 
+                        <wm-grid-column binding="actorId" caption="Actor Id" type="integer" primary-key="true" generator="identity" readonly="true" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                        <wm-grid-column binding="firstName" caption="First Name" type="string" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                        <wm-grid-column binding="lastName" caption="Last Name" type="string" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column> 
+                    </wm-grid> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+        <wm-right-panel name="right_panel1" columnwidth="2" content="rightnav"></wm-right-panel> 
+    </wm-content> 
+    <wm-footer name="footer1" content="footer"></wm-footer> 
+</wm-page>

@@ -1,0 +1,27 @@
+{
+  "username" : "sa",
+  "password" : "",
+  "url" : "jdbc:hsqldb:file:{WebAppRoot}/WEB-INF/data/{WebAppRoot}/WEB-INF/data/rolodex;shutdown=true;hsqldb.lock_file=false;",
+  "driverClass" : "org.hsqldb.jdbcDriver",
+  "dialect" : "org.hibernate.dialect.HSQLDialect",
+  "serviceId" : "rolodex",
+  "packageName" : "com.testdb_hsql.rolodex",
+  "dbType" : "HSQLDB",
+  "host" : null,
+  "dbName" : "rolodex",
+  "port" : null,
+  "schemaName" : null,
+  "schemaFilter" : [ ".*" ],
+  "tableFilter" : [ "ACTOR", "ADDRESS", "CITY", "COUNTRY", "CUSTOMER", "FILM", "FILM_ACTOR", "INVENTORY", "STORE" ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "update",
+  "maxPageSize" : 100,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "message" : "New column fields to hibernate mapping are not properly added.",
+    "reason" : "MIGRATION_FAILED",
+    "reload" : true
+  }
+}

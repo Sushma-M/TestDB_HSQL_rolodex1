@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:security="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <context:component-scan base-package="com.testdb_hsql.rolodex.controller,com.testdb_hsql.rolodex.service,com.testdb_hsql.rolodex.dao" xmlns:context="http://www.springframework.org/schema/context"/>
+    <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>
+                    classpath:rolodex.properties
+                </value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" lazy-init="true" depends-on="systemPropertyInitializer" destroy-method="close" id="rolodexWMManagedDataSource" p:unreturnedConnectionTimeout="300" p:password="${rolodex.password}" p:contextClassLoaderSource="library" p:maxIdleTime="600" p:privilegeSpawnedThreads="true" p:debugUnreturnedConnectionStackTraces="true" p:acquireRetryAttempts="3" p:acquireRetryDelay="1000" p:jdbcUrl="${rolodex.url}" p:user="${rolodex.username}" p:driverClass="${rolodex.driverClass}" p:maxPoolSize="4" p:idleConnectionTestPeriod="300" p:minPoolSize="2" xmlns:p="http://www.springframework.org/schema/p"/>
+    <bean class="com.wavemaker.runtime.data.factory.TypeResolverSessionFactoryBean" id="rolodexSessionFactory">
+        <property name="dataSource" ref="rolodexDataSource"/>
+        <property name="packagesToScan" value="com.testdb_hsql.rolodex"/>
+        <property name="mappingResources">
+            <list>
+                <value>
+                    rolodex-queries.hbm.xml
+                </value>
+            </list>
+        </property>
+        <property name="customTypes">
+            <array value-type="com.wavemaker.runtime.data.CustomType">
+                <ref bean="dateTimeCustomType"/>
+            </array>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                    ${rolodex.dialect}
+                </prop>
+                <prop key="hibernate.show_sql">
+                    false
+                </prop>
+                <prop key="hibernate.globally_quoted_identifiers">
+                    false
+                </prop>
+                <prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+            </props>
+        </property>
+    </bean>
+    <bean class="org.springframework.orm.hibernate4.HibernateTransactionManager" id="rolodexTransactionManager">
+        <property name="sessionFactory" ref="rolodexSessionFactory"/>
+    </bean>
+    <bean class="org.springframework.orm.hibernate4.HibernateTemplate" id="rolodexTemplate">
+        <property name="sessionFactory" ref="rolodexSessionFactory"/>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.dao.query.WMQueryExecutorImpl" id="rolodexWMQueryExecutor">
+        <property name="template" ref="rolodexTemplate"/>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutorImpl" id="rolodexWMProcedureExecutor">
+        <property name="template" ref="rolodexTemplate"/>
+        <property name="serviceId" value="rolodex"/>
+    </bean>
+    <bean class="com.wavemaker.studio.common.data.type.WMPersistentLocalDateTime" id="persistentLocalDateTimeType"/>
+    <bean class="com.wavemaker.runtime.data.CustomType" id="dateTimeCustomType">
+        <property name="type" ref="persistentLocalDateTimeType"/>
+        <property name="keys">
+            <list>
+                <value>DateTime</value>
+                <value>org.joda.time.LocalDateTime</value>
+            </list>
+        </property>
+    </bean>
+    <tx:annotation-driven xmlns:tx="http://www.springframework.org/schema/tx"/>
+    <bean class="com.wavemaker.runtime.resolver.WMPageableHandlerMethodArgumentResolver" id="rolodexPageableHandlerMethodResolver">
+        <property name="pageParameterName" value="page"/>
+        <property name="sizeParameterName" value="size"/>
+        <property name="oneIndexedParameters" value="true"/>
+        <property name="maxPageSize" value="${rolodex.maxPageSize}"/>
+        <property name="fallbackPageable">
+            <bean class="org.springframework.data.domain.PageRequest">
+                <constructor-arg value="0"/>
+                <constructor-arg value="20"/>
+            </bean>
+        </property>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.datasource.WMDataSource" id="rolodexDataSource">
+        <property name="dataSourceType" value="${rolodex.dataSourceType}"/>
+        <property name="jndiName" value="${rolodex.jndiName}"/>
+        <property name="serviceId" value="rolodex"/>
+    </bean>
+</beans>

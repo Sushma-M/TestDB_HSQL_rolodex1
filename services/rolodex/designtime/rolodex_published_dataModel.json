@@ -1,0 +1,914 @@
+{
+  "name" : "rolodex",
+  "description" : null,
+  "packageName" : "com.testdb_hsql.rolodex",
+  "draft" : false,
+  "tables" : [ {
+    "name" : "COUNTRY",
+    "oldName" : null,
+    "entityName" : "Country",
+    "type" : "TABLE",
+    "schema" : "PUBLIC",
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "name" : "COUNTRY_ID",
+      "oldName" : "COUNTRY_ID",
+      "fieldName" : "countryId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "COUNTRY",
+      "oldName" : "COUNTRY",
+      "fieldName" : "country",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 50,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    } ],
+    "primaryKey" : {
+      "name" : "GENERATED_PK_COUNTRY_COUNTRY_ID",
+      "virtual" : false,
+      "columns" : [ "COUNTRY_ID" ],
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      }
+    },
+    "relations" : [ {
+      "name" : "GENERATED_FK_COUNTRY_TO_CITY_COUNTRY_ID",
+      "fieldName" : null,
+      "cardinality" : "OneToMany",
+      "sourceTable" : "COUNTRY",
+      "targetTable" : "CITY",
+      "mappings" : [ {
+        "sourceColumn" : "COUNTRY_ID",
+        "targetColumn" : "COUNTRY_ID"
+      } ],
+      "primary" : false,
+      "virtual" : false
+    } ],
+    "constraints" : null
+  }, {
+    "name" : "CITY",
+    "oldName" : null,
+    "entityName" : "City",
+    "type" : "TABLE",
+    "schema" : "PUBLIC",
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "name" : "CITY_ID",
+      "oldName" : "CITY_ID",
+      "fieldName" : "cityId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "CITY",
+      "oldName" : "CITY",
+      "fieldName" : "city",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 50,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "COUNTRY_ID",
+      "oldName" : "COUNTRY_ID",
+      "fieldName" : "countryId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    } ],
+    "primaryKey" : {
+      "name" : "GENERATED_PK_CITY_CITY_ID",
+      "virtual" : false,
+      "columns" : [ "CITY_ID" ],
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      }
+    },
+    "relations" : [ {
+      "name" : "GENERATED_FK_COUNTRY_TO_CITY_COUNTRY_ID",
+      "fieldName" : "country",
+      "cardinality" : "ManyToOne",
+      "sourceTable" : "CITY",
+      "targetTable" : "COUNTRY",
+      "mappings" : [ {
+        "sourceColumn" : "COUNTRY_ID",
+        "targetColumn" : "COUNTRY_ID"
+      } ],
+      "primary" : true,
+      "virtual" : false
+    }, {
+      "name" : "GENERATED_FK_CITY_TO_ADDRESS_CITY_ID",
+      "fieldName" : null,
+      "cardinality" : "OneToMany",
+      "sourceTable" : "CITY",
+      "targetTable" : "ADDRESS",
+      "mappings" : [ {
+        "sourceColumn" : "CITY_ID",
+        "targetColumn" : "CITY_ID"
+      } ],
+      "primary" : false,
+      "virtual" : false
+    } ],
+    "constraints" : null
+  }, {
+    "name" : "ADDRESS",
+    "oldName" : null,
+    "entityName" : "Address",
+    "type" : "TABLE",
+    "schema" : "PUBLIC",
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "name" : "ADDRESS_ID",
+      "oldName" : "ADDRESS_ID",
+      "fieldName" : "addressId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "ADDRESS",
+      "oldName" : "ADDRESS",
+      "fieldName" : "address",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 50,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "ADDRESS2",
+      "oldName" : "ADDRESS2",
+      "fieldName" : "address2",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 50,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "DISTRICT",
+      "oldName" : "DISTRICT",
+      "fieldName" : "district",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 20,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "CITY_ID",
+      "oldName" : "CITY_ID",
+      "fieldName" : "cityId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "POSTAL_CODE",
+      "oldName" : "POSTAL_CODE",
+      "fieldName" : "postalCode",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 10,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "PHONE",
+      "oldName" : "PHONE",
+      "fieldName" : "phone",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 20,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    } ],
+    "primaryKey" : {
+      "name" : "GENERATED_PK_ADDRESS_ADDRESS_ID",
+      "virtual" : false,
+      "columns" : [ "ADDRESS_ID" ],
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      }
+    },
+    "relations" : [ {
+      "name" : "GENERATED_FK_CITY_TO_ADDRESS_CITY_ID",
+      "fieldName" : "city",
+      "cardinality" : "ManyToOne",
+      "sourceTable" : "ADDRESS",
+      "targetTable" : "CITY",
+      "mappings" : [ {
+        "sourceColumn" : "CITY_ID",
+        "targetColumn" : "CITY_ID"
+      } ],
+      "primary" : true,
+      "virtual" : false
+    }, {
+      "name" : "GENERATED_FK_ADDRESS_TO_CUSTOMER_ADDRESS_ID",
+      "fieldName" : null,
+      "cardinality" : "OneToMany",
+      "sourceTable" : "ADDRESS",
+      "targetTable" : "CUSTOMER",
+      "mappings" : [ {
+        "sourceColumn" : "ADDRESS_ID",
+        "targetColumn" : "ADDRESS_ID"
+      } ],
+      "primary" : false,
+      "virtual" : false
+    }, {
+      "name" : "GENERATED_FK_ADDRESS_TO_STORE_ADDRESS_ID",
+      "fieldName" : null,
+      "cardinality" : "OneToMany",
+      "sourceTable" : "ADDRESS",
+      "targetTable" : "STORE",
+      "mappings" : [ {
+        "sourceColumn" : "ADDRESS_ID",
+        "targetColumn" : "ADDRESS_ID"
+      } ],
+      "primary" : false,
+      "virtual" : false
+    } ],
+    "constraints" : null
+  }, {
+    "name" : "CUSTOMER",
+    "oldName" : null,
+    "entityName" : "Customer",
+    "type" : "TABLE",
+    "schema" : "PUBLIC",
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "name" : "CUSTOMER_ID",
+      "oldName" : "CUSTOMER_ID",
+      "fieldName" : "customerId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "STORE_ID",
+      "oldName" : "STORE_ID",
+      "fieldName" : "storeId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "FIRST_NAME",
+      "oldName" : "FIRST_NAME",
+      "fieldName" : "firstName",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 45,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "LAST_NAME",
+      "oldName" : "LAST_NAME",
+      "fieldName" : "lastName",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 45,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "EMAIL",
+      "oldName" : "EMAIL",
+      "fieldName" : "email",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 50,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "ADDRESS_ID",
+      "oldName" : "ADDRESS_ID",
+      "fieldName" : "addressId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "ACTIVE",
+      "oldName" : "ACTIVE",
+      "fieldName" : "active",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "CREATE_DATE",
+      "oldName" : "CREATE_DATE",
+      "fieldName" : "createDate",
+      "sqlType" : "timestamp",
+      "javaType" : "timestamp",
+      "length" : 26,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    } ],
+    "primaryKey" : {
+      "name" : "GENERATED_PK_CUSTOMER_CUSTOMER_ID",
+      "virtual" : false,
+      "columns" : [ "CUSTOMER_ID" ],
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      }
+    },
+    "relations" : [ {
+      "name" : "GENERATED_FK_ADDRESS_TO_CUSTOMER_ADDRESS_ID",
+      "fieldName" : "address",
+      "cardinality" : "ManyToOne",
+      "sourceTable" : "CUSTOMER",
+      "targetTable" : "ADDRESS",
+      "mappings" : [ {
+        "sourceColumn" : "ADDRESS_ID",
+        "targetColumn" : "ADDRESS_ID"
+      } ],
+      "primary" : true,
+      "virtual" : false
+    }, {
+      "name" : "GENERATED_FK_CUSTOMER_TO_STORE_STORE_ID",
+      "fieldName" : "store",
+      "cardinality" : "ManyToOne",
+      "sourceTable" : "CUSTOMER",
+      "targetTable" : "STORE",
+      "mappings" : [ {
+        "sourceColumn" : "STORE_ID",
+        "targetColumn" : "STORE_ID"
+      } ],
+      "primary" : true,
+      "virtual" : false
+    } ],
+    "constraints" : null
+  }, {
+    "name" : "INVENTORY",
+    "oldName" : null,
+    "entityName" : "Inventory",
+    "type" : "TABLE",
+    "schema" : "PUBLIC",
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "name" : "INVENTORY_ID",
+      "oldName" : "INVENTORY_ID",
+      "fieldName" : "inventoryId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "FILM_ID",
+      "oldName" : "FILM_ID",
+      "fieldName" : "filmId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "STORE_ID",
+      "oldName" : "STORE_ID",
+      "fieldName" : "storeId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    } ],
+    "primaryKey" : {
+      "name" : "GENERATED_PK_INVENTORY_INVENTORY_ID",
+      "virtual" : false,
+      "columns" : [ "INVENTORY_ID" ],
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      }
+    },
+    "relations" : [ {
+      "name" : "GENERATED_FK_INVENTORY_TO_STORE_STORE_ID",
+      "fieldName" : "store",
+      "cardinality" : "ManyToOne",
+      "sourceTable" : "INVENTORY",
+      "targetTable" : "STORE",
+      "mappings" : [ {
+        "sourceColumn" : "STORE_ID",
+        "targetColumn" : "STORE_ID"
+      } ],
+      "primary" : true,
+      "virtual" : false
+    }, {
+      "name" : "GENERATED_FK_INVENTORY_TO_FILM_FILM_ID",
+      "fieldName" : "film",
+      "cardinality" : "ManyToOne",
+      "sourceTable" : "INVENTORY",
+      "targetTable" : "FILM",
+      "mappings" : [ {
+        "sourceColumn" : "FILM_ID",
+        "targetColumn" : "FILM_ID"
+      } ],
+      "primary" : true,
+      "virtual" : false
+    } ],
+    "constraints" : null
+  }, {
+    "name" : "ACTOR",
+    "oldName" : null,
+    "entityName" : "Actor",
+    "type" : "TABLE",
+    "schema" : "PUBLIC",
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "name" : "ACTOR_ID",
+      "oldName" : "ACTOR_ID",
+      "fieldName" : "actorId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "FIRST_NAME",
+      "oldName" : "FIRST_NAME",
+      "fieldName" : "firstName",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 45,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "LAST_NAME",
+      "oldName" : "LAST_NAME",
+      "fieldName" : "lastName",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 45,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    } ],
+    "primaryKey" : {
+      "name" : "GENERATED_PK_ACTOR_ACTOR_ID",
+      "virtual" : false,
+      "columns" : [ "ACTOR_ID" ],
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      }
+    },
+    "relations" : [ {
+      "name" : "GENERATED_FK_ACTOR_TO_FILM_ACTOR_ACTOR_ID",
+      "fieldName" : null,
+      "cardinality" : "OneToMany",
+      "sourceTable" : "ACTOR",
+      "targetTable" : "FILM_ACTOR",
+      "mappings" : [ {
+        "sourceColumn" : "ACTOR_ID",
+        "targetColumn" : "ACTOR_ID"
+      } ],
+      "primary" : false,
+      "virtual" : false
+    } ],
+    "constraints" : null
+  }, {
+    "name" : "FILM_ACTOR",
+    "oldName" : null,
+    "entityName" : "FilmActor",
+    "type" : "TABLE",
+    "schema" : "PUBLIC",
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "name" : "ACTOR_ID",
+      "oldName" : "ACTOR_ID",
+      "fieldName" : "actorId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "assigned"
+    }, {
+      "name" : "FILM_ID",
+      "oldName" : "FILM_ID",
+      "fieldName" : "filmId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "assigned"
+    } ],
+    "primaryKey" : {
+      "name" : "GENERATED_PK_FILM_ACTOR_ACTOR_ID_FILM_ID",
+      "virtual" : false,
+      "columns" : [ "ACTOR_ID", "FILM_ID" ],
+      "generator" : {
+        "generatorType" : "assigned",
+        "generatorValue" : null
+      }
+    },
+    "relations" : [ {
+      "name" : "GENERATED_FK_ACTOR_TO_FILM_ACTOR_ACTOR_ID",
+      "fieldName" : "actor",
+      "cardinality" : "ManyToOne",
+      "sourceTable" : "FILM_ACTOR",
+      "targetTable" : "ACTOR",
+      "mappings" : [ {
+        "sourceColumn" : "ACTOR_ID",
+        "targetColumn" : "ACTOR_ID"
+      } ],
+      "primary" : true,
+      "virtual" : false
+    }, {
+      "name" : "GENERATED_FK_FILM_ACTOR_TO_FILM_FILM_ID",
+      "fieldName" : "film",
+      "cardinality" : "ManyToOne",
+      "sourceTable" : "FILM_ACTOR",
+      "targetTable" : "FILM",
+      "mappings" : [ {
+        "sourceColumn" : "FILM_ID",
+        "targetColumn" : "FILM_ID"
+      } ],
+      "primary" : true,
+      "virtual" : false
+    } ],
+    "constraints" : null
+  }, {
+    "name" : "STORE",
+    "oldName" : null,
+    "entityName" : "Store",
+    "type" : "TABLE",
+    "schema" : "PUBLIC",
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "name" : "STORE_ID",
+      "oldName" : "STORE_ID",
+      "fieldName" : "storeId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "ADDRESS_ID",
+      "oldName" : "ADDRESS_ID",
+      "fieldName" : "addressId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    } ],
+    "primaryKey" : {
+      "name" : "GENERATED_PK_STORE_STORE_ID",
+      "virtual" : false,
+      "columns" : [ "STORE_ID" ],
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      }
+    },
+    "relations" : [ {
+      "name" : "GENERATED_FK_ADDRESS_TO_STORE_ADDRESS_ID",
+      "fieldName" : "address",
+      "cardinality" : "ManyToOne",
+      "sourceTable" : "STORE",
+      "targetTable" : "ADDRESS",
+      "mappings" : [ {
+        "sourceColumn" : "ADDRESS_ID",
+        "targetColumn" : "ADDRESS_ID"
+      } ],
+      "primary" : true,
+      "virtual" : false
+    }, {
+      "name" : "GENERATED_FK_CUSTOMER_TO_STORE_STORE_ID",
+      "fieldName" : null,
+      "cardinality" : "OneToMany",
+      "sourceTable" : "STORE",
+      "targetTable" : "CUSTOMER",
+      "mappings" : [ {
+        "sourceColumn" : "STORE_ID",
+        "targetColumn" : "STORE_ID"
+      } ],
+      "primary" : false,
+      "virtual" : false
+    }, {
+      "name" : "GENERATED_FK_INVENTORY_TO_STORE_STORE_ID",
+      "fieldName" : null,
+      "cardinality" : "OneToMany",
+      "sourceTable" : "STORE",
+      "targetTable" : "INVENTORY",
+      "mappings" : [ {
+        "sourceColumn" : "STORE_ID",
+        "targetColumn" : "STORE_ID"
+      } ],
+      "primary" : false,
+      "virtual" : false
+    } ],
+    "constraints" : null
+  }, {
+    "name" : "FILM",
+    "oldName" : null,
+    "entityName" : "Film",
+    "type" : "TABLE",
+    "schema" : "PUBLIC",
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "name" : "FILM_ID",
+      "oldName" : "FILM_ID",
+      "fieldName" : "filmId",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "TITLE",
+      "oldName" : "TITLE",
+      "fieldName" : "title",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 255,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "DESCRIPTION",
+      "oldName" : "DESCRIPTION",
+      "fieldName" : "description",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 500,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "RELEASE_YEAR",
+      "oldName" : "RELEASE_YEAR",
+      "fieldName" : "releaseYear",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 4,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "RENTAL_DURATION",
+      "oldName" : "RENTAL_DURATION",
+      "fieldName" : "rentalDuration",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "RENTAL_RATE",
+      "oldName" : "RENTAL_RATE",
+      "fieldName" : "rentalRate",
+      "sqlType" : "number",
+      "javaType" : "big_decimal",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 2,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "LENGTH",
+      "oldName" : "LENGTH",
+      "fieldName" : "length",
+      "sqlType" : "number",
+      "javaType" : "integer",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "REPLACEMENT_COST",
+      "oldName" : "REPLACEMENT_COST",
+      "fieldName" : "replacementCost",
+      "sqlType" : "number",
+      "javaType" : "big_decimal",
+      "length" : 255,
+      "precision" : 19,
+      "scale" : 2,
+      "nullable" : false,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "RATING",
+      "oldName" : "RATING",
+      "fieldName" : "rating",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 5,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    }, {
+      "name" : "SPECIAL_FEATURES",
+      "oldName" : "SPECIAL_FEATURES",
+      "fieldName" : "specialFeatures",
+      "sqlType" : "string",
+      "javaType" : "string",
+      "length" : 60,
+      "precision" : 0,
+      "scale" : 0,
+      "nullable" : true,
+      "defaultValue" : null,
+      "sequenceName" : null,
+      "generatorType" : "identity"
+    } ],
+    "primaryKey" : {
+      "name" : "GENERATED_PK_FILM_FILM_ID",
+      "virtual" : false,
+      "columns" : [ "FILM_ID" ],
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      }
+    },
+    "relations" : [ {
+      "name" : "GENERATED_FK_INVENTORY_TO_FILM_FILM_ID",
+      "fieldName" : null,
+      "cardinality" : "OneToMany",
+      "sourceTable" : "FILM",
+      "targetTable" : "INVENTORY",
+      "mappings" : [ {
+        "sourceColumn" : "FILM_ID",
+        "targetColumn" : "FILM_ID"
+      } ],
+      "primary" : false,
+      "virtual" : false
+    }, {
+      "name" : "GENERATED_FK_FILM_ACTOR_TO_FILM_FILM_ID",
+      "fieldName" : null,
+      "cardinality" : "OneToMany",
+      "sourceTable" : "FILM",
+      "targetTable" : "FILM_ACTOR",
+      "mappings" : [ {
+        "sourceColumn" : "FILM_ID",
+        "targetColumn" : "FILM_ID"
+      } ],
+      "primary" : false,
+      "virtual" : false
+    } ],
+    "constraints" : null
+  } ]
+}

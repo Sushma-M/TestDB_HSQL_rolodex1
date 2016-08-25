@@ -1,0 +1,369 @@
+/*START - Default Theme*/
+
+.wm-app {
+  @import url("../../../components/bootstrap/less/bootstrap.less");
+  @import url("variables.less");
+
+  font-size: @font-size-base;
+  color: @text-color;
+  font-family: @font-family-base;
+
+  /*******override the bootstrap styles since the style properties doesn't exist****/
+  //Variables
+  @app-border-color: #d1d7da;
+
+  a {
+    color: #428BCA;
+  }
+
+  //Panels
+  .panel-default {
+    border-top-width: 0.33em;
+    border-color: @app-border-color;
+    > .panel-heading {
+      border-color: @app-border-color;
+    }
+  }
+
+  //Tabs
+  .nav-tabs {
+    border-bottom-color: @app-border-color;
+    > li {
+      > a {
+        background-color: #DDD;
+        color: inherit;
+
+        &:hover {
+          color: #ffffff;
+          background-color: #C2BFBF;
+        }
+      }
+
+      &.active {
+        a, a:focus, a:hover {
+          border-color: @app-border-color;
+          border-bottom-color: rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+
+  //Tab Content
+  .tab-content {
+    .tab-body {
+      border-color: @app-border-color;
+      padding: 1.25em 1.6em;
+    }
+  }
+
+  //Well
+  .well {
+    background-image: -moz-linear-gradient(top, #f5f5f5, #e8e8e8);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#e8e8e8));
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #e8e8e8);
+    background-image: -o-linear-gradient(top, #f5f5f5, #e8e8e8);
+    background-image: linear-gradient(to bottom, #f5f5f5, #e8e8e8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f5f5f5, endColorstr=#e8e8e8, GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    border-color: #E7EAEC;
+  }
+
+  //Calendar, Date and DateTime Widgets common styles
+  .app-calendar, .app-date, .app-datetime {
+    .dropdown-menu {
+      .btn-default {
+        border-radius: 0;
+        border-color: transparent;
+
+        &.active {
+          color: #ffffff;
+          background-color: #6bafbd;
+          border-color: #59a5b5;
+
+          &:hover {
+            color: #ffffff;
+            background-color: #4c99a9;
+            border-color: #418391;
+          }
+
+          .text-info {
+            color: #FFFFFF;
+          }
+        }
+
+        &.pull-left, &.pull-right {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  //Calendar Specific
+  .app-calendar {
+    .well {
+      background-image: none;
+      background-color: #424F63;
+      color: #BECFDF;
+      padding: 0.4em;
+    }
+  }
+
+  //Dropdown menu
+  .dropdown-menu {
+    margin-top: 0;
+  }
+
+  //Label
+  label {
+    font-weight: normal;
+  }
+
+  //Tile
+  .app-tile.panel {
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+
+    .panel-body {
+      border-width: 0.33em 0 0;
+    }
+  }
+
+  .list-group-item-separator {
+    margin-bottom: 0.25em;
+    border-radius: 0.25em;
+    .form-group {
+      padding: 0 1em;
+    }
+  }
+
+  //Navigation
+  .nav {
+    > li {
+      > a {
+        &:hover, &:focus {
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+
+  /*Modal*/
+  .modal-header {
+    color: #000;
+    font-weight: bold;
+    background-color: #B9C4CF;
+    border-bottom-color: #a1afbe;
+  }
+
+  //Breadcrumbs
+  .breadcrumb {
+    background-color: #EAEAEA;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+
+    > .active {
+      font-weight: bold;
+      color: #333;
+    }
+  }
+
+  /*Layout**************************************************************************/
+  .app-content {
+    background-color: #F3F3F4;
+  }
+
+  //Mobile Specific button
+  .navbar-toggle {
+    margin-right: 1.2em;
+  }
+
+  //Header
+  .app-header {
+    background-color: #2B333C;
+    @media only screen and (max-width: 480px) and (min-width: 320px) {
+      border-bottom: 1px solid #E7EAEC;
+    }
+
+    .nav {
+      > li {
+        > a {
+          color: #BECFE0;
+
+          &:hover {
+            color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+
+  //Application Name
+  .application-name {
+    color: #ffffff;
+  }
+
+  //Top Nav Bar
+  .app-navbar {
+    border-radius: 0;
+
+    .navbar-nav {
+      > li {
+        a {
+          color: @navbar-default-link-color;
+          background-color: transparent;
+
+          &:hover, &:focus, &.active {
+            color: @navbar-default-link-hover-color;
+            text-decoration: none;
+          }
+        }
+
+        > .dropdown .dropdown-menu {
+          margin: 0;
+          a {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            color: #BECFE0;
+
+            &:hover {
+              color: #fff;
+              background-color: #272938;
+            }
+          }
+        }
+      }
+
+      .app-nav-item {
+        > .dropdown, > .app-popover {
+          a.dropdown-toggle, a.app-popover-link {
+            padding-top: 1.5em;
+            padding-bottom: 1.5em;
+          }
+        }
+      }
+    }
+
+    .popover {
+      min-width: 200px;
+
+      &.bottom {
+        > .arrow {
+          border-bottom-color: rgba(0, 0, 0, 0.14);
+
+          &:after {
+            border-bottom-color: rgba(232, 234, 236, 0.6);
+          }
+        }
+      }
+
+      .popover-content {
+        padding: 0;
+      }
+    }
+  }
+
+  .app-left-panel, .app-right-panel {
+    .nav {
+       li, .app-nav-item {
+        margin-top: 0;
+
+        > a, > .btn, > .dropdown > a.dropdown-toggle {
+          color: #BECFE0;
+          padding: 1em;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          transition: color .5s ease, background .5s ease;
+          -webkit-transition: color .5s ease, background .5s ease;
+          -moz-transition: color .5s ease, background .5s ease;
+          -ms-transition: color .5s ease, background .5s ease;
+          -o-transition: color .5s ease, background .5s ease;
+          border-left: 0.25em solid transparent;
+          position: relative;
+          border-radius: 0;
+
+          &:hover {
+            text-decoration: none;
+            color: #FFF;
+            transition: color .5s ease, background .5s ease;
+            -webkit-transition: color .5s ease, background .5s ease;
+            -moz-transition: color .5s ease, background .5s ease;
+            -ms-transition: color .5s ease, background .5s ease;
+            -o-transition: color .5s ease, background .5s ease;
+            background: #272938;
+            border-left-color: #FEFFD8;
+
+            &:before {
+              content: "";
+              position: absolute;
+              width: 2px;
+              top: 0;
+              bottom: 0;
+              left: -2px;
+              box-shadow: 0.2em 0 1.5em 0 #FFF;
+              -moz-box-shadow: 0.2em 0 1.5em 0 #FFF;
+              -webkit-box-shadow: 0.2em 0 1.5em 0 #FFF;
+            }
+          }
+
+          &.active, &.active:hover {
+            color: #FFFFFF;
+            background-color: #272938;
+            border-left-color: #FEFFD8;
+          }
+
+          .glyphicon {
+            margin-right: 1em;
+          }
+        }
+
+        > .dropdown.open {
+          > a.dropdown-toggle {
+            color: #BECFE0;
+            background: #272938;
+          }
+
+          .dropdown-menu {
+            > li {
+              > a {
+                padding: 0.8em 1.2em;
+                color: #BECFE0;
+                &:hover, &:focus, &.active {
+                  color: #fff;
+                  background-color: #272938;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //Left Panel
+  .app-left-panel {
+    background-color: #495B6C;
+    .nav {
+      > li {
+        border-top: 1px solid #506274;
+        border-bottom: 1px solid #415160;
+      }
+    }
+  }
+
+  //Right Panel .wm-app .app-right-panel .nav .app-nav-item > .dropdown > a.dropdown-toggle
+  .app-right-panel {
+    background-color: #e7e7e9;
+    .nav {
+      > li, > .app-nav-item {
+        border-bottom: 1px solid #f5f5f5;
+        a, .btn, > .dropdown > a.dropdown-toggle {
+          color: #333;
+        }
+      }
+    }
+  }
+
+  //Footer
+  .app-footer {
+    padding: 1em 1.5em;
+  }
+}

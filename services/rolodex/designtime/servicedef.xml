@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="rolodex" CRUDService="true" type="DataService" springFile="rolodex.spring.xml">
+    <dataobjects>
+        <dataobject javaType="com.testdb_hsql.rolodex.Customer">
+            <element name="lastName" typeRef="java.lang.String" allowNull="true"/>
+            <element name="customerId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="store" typeRef="com.testdb_hsql.rolodex.Store" allowNull="true"/>
+            <element name="address" typeRef="com.testdb_hsql.rolodex.Address" allowNull="true"/>
+            <element name="email" typeRef="java.lang.String" allowNull="true"/>
+            <element name="active" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="createDate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="firstName" typeRef="java.lang.String" allowNull="true"/>
+            <element name="storeId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="addressId" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.testdb_hsql.rolodex.Store">
+            <element name="inventories" typeRef="com.testdb_hsql.rolodex.Inventory" isList="true" allowNull="true"/>
+            <element name="address" typeRef="com.testdb_hsql.rolodex.Address" allowNull="true"/>
+            <element name="customers" typeRef="com.testdb_hsql.rolodex.Customer" isList="true" allowNull="true"/>
+            <element name="storeId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="addressId" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.wavemaker.runtime.data.expression.QueryFilter">
+            <element name="attributeName" typeRef="java.lang.String" allowNull="true"/>
+            <element name="attributeValue" allowNull="true"/>
+            <element name="filterCondition" typeRef="java.lang.String" allowNull="true"/>
+            <element name="attributeType" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.testdb_hsql.rolodex.FilmActorId">
+            <element name="actorId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="filmId" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.testdb_hsql.rolodex.Country">
+            <element name="countryId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="cities" typeRef="com.testdb_hsql.rolodex.City" isList="true" allowNull="true"/>
+            <element name="country" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.testdb_hsql.rolodex.Inventory">
+            <element name="film" typeRef="com.testdb_hsql.rolodex.Film" allowNull="true"/>
+            <element name="store" typeRef="com.testdb_hsql.rolodex.Store" allowNull="true"/>
+            <element name="inventoryId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="storeId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="filmId" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.testdb_hsql.rolodex.City">
+            <element name="countryId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="cityId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="addresses" typeRef="com.testdb_hsql.rolodex.Address" isList="true" allowNull="true"/>
+            <element name="country" typeRef="com.testdb_hsql.rolodex.Country" allowNull="true"/>
+            <element name="city" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.wavemaker.runtime.data.model.CustomProcedure">
+            <element name="procedureParams" typeRef="com.wavemaker.runtime.data.model.CustomProcedureParam" isList="true" allowNull="true"/>
+            <element name="procedureStr" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.testdb_hsql.rolodex.Actor">
+            <element name="lastName" typeRef="java.lang.String" allowNull="true"/>
+            <element name="actorId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="firstName" typeRef="java.lang.String" allowNull="true"/>
+            <element name="filmActors" typeRef="com.testdb_hsql.rolodex.FilmActor" isList="true" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.testdb_hsql.rolodex.Address">
+            <element name="phone" typeRef="java.lang.String" allowNull="true"/>
+            <element name="postalCode" typeRef="java.lang.String" allowNull="true"/>
+            <element name="cityId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="address" typeRef="java.lang.String" allowNull="true"/>
+            <element name="address2" typeRef="java.lang.String" allowNull="true"/>
+            <element name="customers" typeRef="com.testdb_hsql.rolodex.Customer" isList="true" allowNull="true"/>
+            <element name="stores" typeRef="com.testdb_hsql.rolodex.Store" isList="true" allowNull="true"/>
+            <element name="district" typeRef="java.lang.String" allowNull="true"/>
+            <element name="addressId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="city" typeRef="com.testdb_hsql.rolodex.City" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.testdb_hsql.rolodex.FilmActor">
+            <element name="film" typeRef="com.testdb_hsql.rolodex.Film" allowNull="true"/>
+            <element name="id" typeRef="com.testdb_hsql.rolodex.FilmActorId" allowNull="true"/>
+            <element name="actorId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="actor" typeRef="com.testdb_hsql.rolodex.Actor" allowNull="true"/>
+            <element name="filmId" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.wavemaker.runtime.data.model.CustomQuery">
+            <element name="queryParams" typeRef="com.wavemaker.runtime.data.model.CustomQueryParam" isList="true" allowNull="true"/>
+            <element name="nativeSql" typeRef="java.lang.Boolean" allowNull="true"/>
+            <element name="queryStr" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.testdb_hsql.rolodex.Film">
+            <element name="specialFeatures" typeRef="java.lang.String" allowNull="true"/>
+            <element name="title" typeRef="java.lang.String" allowNull="true"/>
+            <element name="inventories" typeRef="com.testdb_hsql.rolodex.Inventory" isList="true" allowNull="true"/>
+            <element name="description" typeRef="java.lang.String" allowNull="true"/>
+            <element name="replacementCost" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="length" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="rentalDuration" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="rating" typeRef="java.lang.String" allowNull="true"/>
+            <element name="rentalRate" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="filmActors" typeRef="com.testdb_hsql.rolodex.FilmActor" isList="true" allowNull="true"/>
+            <element name="filmId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="releaseYear" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+    </dataobjects>
+</service>
