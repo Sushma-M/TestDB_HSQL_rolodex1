@@ -291,12 +291,19 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>com.wavemaker.studio</groupId>
+                <artifactId>wavemaker-app-runtime</artifactId>
+                <version>${wavemaker.studio.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <properties>
         <spring.version>4.2.0.RELEASE</spring.version>
         <profile.props.file>development.properties</profile.props.file>
-        <spring.security.version>3.2.3.RELEASE</spring.security.version>
-        <wavemaker.studio.version>8.3.0.2097</wavemaker.studio.version>
+        <spring.security.version>4.1.2.RELEASE</spring.security.version>
+        <wavemaker.studio.version>8.3.0.2261</wavemaker.studio.version>
     </properties>
 </project>

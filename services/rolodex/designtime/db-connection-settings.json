@@ -1,6 +1,6 @@
 {
   "username" : "sa",
-  "password" : "",
+  "password" : "7b6a43524a78700d662158",
   "url" : "jdbc:hsqldb:file:{WebAppRoot}/WEB-INF/data/{WebAppRoot}/WEB-INF/data/rolodex;shutdown=true;hsqldb.lock_file=false;",
   "driverClass" : "org.hsqldb.jdbcDriver",
   "dialect" : "org.hibernate.dialect.HSQLDialect",
@@ -11,8 +11,35 @@
   "dbName" : "rolodex",
   "port" : null,
   "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "ACTOR",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "ADDRESS",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "CITY",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "COUNTRY",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "CUSTOMER",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "FILM",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "FILM_ACTOR",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "INVENTORY",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "STORE",
+    "schema" : "PUBLIC"
+  } ],
   "schemaFilter" : [ ".*" ],
-  "tableFilter" : [ "ACTOR", "ADDRESS", "CITY", "COUNTRY", "CUSTOMER", "FILM", "FILM_ACTOR", "INVENTORY", "STORE" ],
   "impersonateUser" : false,
   "activeDirectoryDomain" : null,
   "hbm2ddl" : "update",
@@ -20,8 +47,9 @@
   "dataSourceType" : "WM_MANAGED_DATASOURCE",
   "jndiName" : "",
   "reloadInfo" : {
-    "message" : "New column fields to hibernate mapping are not properly added.",
-    "reason" : "MIGRATION_FAILED",
-    "reload" : true
-  }
+    "reload" : false,
+    "reason" : null,
+    "message" : null
+  },
+  "readOnly" : true
 }

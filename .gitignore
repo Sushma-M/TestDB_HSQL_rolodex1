@@ -21,3 +21,5 @@ src/main/webapp/wmmobile
 !src/main/webapp/WEB-INF/data/*.log
 src/main/webapp/pages/*/page.min.html
 services/*/src/servicedefs/*-service-definitions.json
+src/main/webapp/WEB-INF/context.xml
+dataObjects.json
