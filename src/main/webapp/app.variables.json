@@ -1,4 +1,27 @@
 {
+  "FileServiceUploadFile" : {
+    "_id" : "wm-FileServiceUploadFile-wm.ServiceVariable-1479293410409",
+    "name" : "FileServiceUploadFile",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.testdb_hsql.fileservice.FileService.FileUploadResponse",
+    "service" : "FileService",
+    "operation" : "uploadFile",
+    "operationId" : "FileController_uploadFile",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "File"
+  },
   "goToPage-Main" : {
     "_id" : "wm-goToPage-Main-wm.NavigationVariable1389180517517",
     "name" : "goToPage-Main",
@@ -7,6 +30,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Main"
+  },
+  "goToPage_test" : {
+    "_id" : "wm-goToPage_test-wm.NavigationVariable-1479293401597",
+    "name" : "goToPage_test",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "test",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
   },
   "RolodexActorData" : {
     "_id" : "wm-RolodexActorData-wm.LiveVariable-1469791638302",

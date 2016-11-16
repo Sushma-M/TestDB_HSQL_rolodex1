@@ -1,25 +1,37 @@
 [ {
   "name" : "Common",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "Login",
-  "type" : "PAGE"
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "Main",
-  "type" : "PAGE"
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "footer",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "header",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "leftnav",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "rightnav",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "test",
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "topnav",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 } ]

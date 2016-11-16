@@ -1,0 +1,12 @@
+<wm-page data-ng-controller="testPageController" pagetitle="Test" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="8" name="page_content1">
+            <wm-fileupload name="fileupload1" service="FileService" operation="uploadFile"></wm-fileupload>
+        </wm-page-content>
+        <wm-right-panel columnwidth="2" content="rightnav" name="right_panel1"></wm-right-panel>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

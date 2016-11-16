@@ -18,6 +18,13 @@
                     <exclude>**/*.java</exclude>
                 </excludes>
             </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/FileService/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
         </resources>
         <finalName>TestDB_HSQL_rolodex1</finalName>
         <filters>
@@ -86,6 +93,7 @@
                         <configuration>
                             <sources>
                                 <source>services/rolodex/src</source>
+                                <source>services/FileService/src</source>
                             </sources>
                         </configuration>
                     </execution>
