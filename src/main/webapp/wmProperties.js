@@ -1,5 +1,5 @@
 var _WM_APP_PROPERTIES = {
-  "activeTheme" : "default",
+  "activeTheme" : "mellow-yellow",
   "defaultLanguage" : "en",
   "displayName" : "TestDB_HSQL_rolodex1",
   "homePage" : "Main",
